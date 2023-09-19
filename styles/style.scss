@@ -104,7 +104,10 @@ body {
     }
   }
   .section--business {
-    background: url("./assets/images/bg-1.png") center center / cover no-repeat;
+    background-image: url("../assets/images/bg-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
