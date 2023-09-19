@@ -1,0 +1,643 @@
+@import "./varibles";
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  font-family: $ff-body, sans-serif;
+  box-sizing: border-box;
+  a {
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+@mixin noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+body {
+  background: $primary-bgcolor;
+  .header {
+    background: $primary-bgcolor;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    min-height: 100px;
+    padding: 33.5px 0 31.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-style: normal;
+
+    &__text {
+      font-size: 28px;
+      font-weight: 800;
+      color: $primary-text;
+
+      &-span {
+        color: $active-text;
+      }
+      @media screen and (max-width: 540px) {
+        font-size: 22px;
+      }
+    }
+    img {
+      display: none;
+    }
+    .list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 428px;
+
+      &__text:nth-child(2) {
+        margin: 0 60px;
+      }
+      &__text:nth-child(3) {
+        margin: 0 60px 0 0;
+      }
+
+      &__text a {
+        font-family: $ff-body;
+        font-size: 13px;
+        font-weight: 600;
+        color: $primary-text;
+      }
+      .active {
+        color: $active-text;
+      }
+
+      @media screen and (max-width: 1250px) {
+        margin-left: 200px;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+      img {
+        position: absolute;
+        display: block;
+        top: 20px;
+        right: 50px;
+        background: $secodary-bgcolor;
+      }
+      .list {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 540px) {
+      justify-content: flex-start;
+      padding-left: 20px;
+
+      img {
+        right: 20px;
+      }
+    }
+  }
+  .section--business {
+    background: url("../assets/images/bg-1.png") center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 850px;
+    padding: 203px 428px 200px 0;
+    color: $base-text;
+    font-family: $ff-header;
+    line-height: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &-h {
+      font-size: 48px;
+      @media screen and (max-width: 1024px) {
+        font-size: 38px;
+      }
+      @media screen and (max-width: 430px) {
+        font-size: 28px;
+      }
+    }
+
+    &-span {
+      color: $primary-btncolor;
+    }
+
+    &-p {
+      text-transform: none;
+      font-size: 20px;
+      margin: 80px 0 5px;
+      @media screen and (max-width: 1024px) {
+        font-size: 16px;
+      }
+      @media screen and (max-width: 430px) {
+        font-size: 14px;
+        width: 100%;
+        margin: 80px 10px 5px;
+      }
+    }
+
+    .list li {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 5px 0 5px 10px;
+
+      span {
+        text-transform: none;
+        font-size: 20px;
+        font-weight: 400;
+        margin-left: 10px;
+        @media screen and (max-width: 1024px) {
+          font-size: 16px;
+        }
+        @media screen and (max-width: 430px) {
+          font-size: 14px;
+          width: 100%;
+        }
+      }
+    }
+
+    .button--container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 80px;
+
+      .button {
+        font-size: 13px;
+        font-weight: 400;
+        display: flex;
+        min-width: 183px;
+        text-align: center;
+        padding: 15px 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: ease-in-out 0.4s;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: ease-in-out 0.4s;
+        }
+
+        &--primary {
+          color: $primary-btntext;
+          border-radius: 4px;
+          border: 1px solid $border-primary;
+          background-color: $primary-btncolor;
+        }
+
+        &--secondary {
+          margin-left: 30px;
+          color: $secondary-btntext;
+          border-radius: 4px;
+          border: 1px solid $border-secondary;
+          background-color: $secondary-btncolor;
+        }
+      }
+      @media screen and (max-width: 430px) {
+        flex-direction: column;
+        .button {
+          &--secondary {
+            margin-left: 0;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1873px) {
+      min-height: unset;
+      max-height: 675px;
+    }
+    @media screen and (max-width: 1250px) {
+      padding: 265px 200px 200px 0;
+    }
+    @media screen and (max-width: 1024px) {
+      padding: 300px 100px 200px 100px;
+    }
+    @media screen and (max-width: 430px) {
+      padding: 300px 20px 200px
+    }
+  }
+  .section--order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 150px 0 0;
+
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: $ff-header;
+      font-style: normal;
+      line-height: normal;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $primary-text;
+        margin-bottom: 30px;
+        @media screen and (max-width: 1024px) {
+          font-size: 26px;
+        }
+        span {
+          color: $active-text;
+        }
+      }
+
+      p {
+        color: $secondary-text;
+        font-size: 18px;
+        font-weight: 400;
+        @media screen and (max-width: 1024px) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .scheme--container {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin: 0 15px;
+
+        &:first-child {
+          margin: 0 15px 0 0;
+        }
+        &:last-child {
+          margin: 0 0 0 15px;
+        }
+
+        &-card {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          min-height: 169px;
+          min-width: 209px;
+
+          p {
+            max-width: 209px;
+            padding: 20px 0 10px;
+            color: $primary-text;
+            text-align: center;
+            font-family: $ff-header;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            @media screen and (max-width: 1024px) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        #dots--item {
+          position: absolute;
+          top: 52px;
+          left: 170px;
+        }
+      }
+
+      @media screen and (max-width: 1250px) {
+        flex-direction: column;
+
+        &__item {
+          flex-direction: column;
+          margin: 5px 0 0;
+          justify-content: center;
+
+          &-card {
+            min-height: unset;
+          }
+
+          &:first-child {
+            margin: 0;
+          }
+          &:last-child {
+            margin: 5px 0 0;
+          }
+
+          #dots--item {
+            position: unset;
+            transform: rotate(90deg);
+            height: 111px;
+            margin: 0 5px 0;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 540px) {
+      padding: 150px 20px 0;
+    }
+  }
+
+  .section--form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px 0 150px;
+
+    &__container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-family: $ff-header;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      &-input {
+        max-width: 1179px;
+        input[type="email"] {
+          margin: 0 28px;
+        }
+        select,
+        input {
+          padding-block: 0;
+          padding-inline: 0;
+          border-radius: 3px;
+          border: 1px solid $border-primary;
+          background: $secodary-bgcolor;
+          gap: 5px;
+          flex-shrink: 0;
+          padding: 10px;
+          width: 370px;
+          height: 48px;
+
+          @media screen and (max-width: 430px) {
+            width: 300px;
+          }
+        }
+
+        @media screen and (max-width: 1250px) {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+          justify-content: center;
+
+          input[type="email"] {
+            margin: 28px 0;
+          }
+        }
+      }
+      &-files {
+        margin: 30px 27px 20px 0;
+        display: flex;
+        align-items: center;
+
+        &__value {
+          color: $primary-text;
+          font-family: $ff-header;
+
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          flex-direction: column;
+
+          &-text {
+            font-family: $ff-header;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            :first-child {
+              font-family: $ff-header;
+              width: 735px;
+              @media screen and (max-width: 1024px) {
+                width: unset;
+              }
+            }
+            :last-child {
+              font-family: $ff-header;
+              margin: 0 0 0 10px;
+            }
+          }
+
+          &-line {
+            width: 778px;
+            background: $secodary-bgcolor;
+            height: 6px;
+            position: relative;
+
+            svg {
+              cursor: pointer;
+              position: absolute;
+              top: -17px;
+              right: 60px;
+            }
+
+            @media screen and (max-width: 1024px) {
+              width: 100%;
+            }
+          }
+        }
+
+        button {
+          cursor: pointer;
+          margin-left: 22px;
+          width: 370px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            margin-left: 10px;
+            color: #272733;
+            font-family: $ff-header;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: uppercase;
+          }
+
+          @media screen and (max-width: 430px) {
+            width: 300px;
+          }
+        }
+        @media screen and (max-width: 1250px) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 30px 27px 10px;
+
+          button {
+            margin-left: 0;
+            margin: 20px 0 0;
+          }
+        }
+
+        @media screen and (max-width: 540px) {
+          margin: 30px 0 10px;
+        }
+      }
+
+      @media screen and (max-width: 1024px) {
+        font-size: 14px;
+      }
+      @media screen and (max-width: 540px) {
+        margin: 0 5px;
+      }
+    }
+
+    .button {
+      margin-top: 55px;
+      width: 370px;
+      height: 48px;
+      padding: 15px 10px;
+      gap: 10px;
+      flex-shrink: 0;
+      background: $primary-btncolor;
+      border-radius: 4px;
+      border: 1px solid $border-primary;
+
+      &__text {
+        color: $primary-text;
+        text-align: center;
+        font-family: $ff-header;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+      }
+      @media screen and (max-width: 430px) {
+        width: 300px;
+      }
+    }
+  }
+
+  .footer--block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: $ff-header;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    height: 80px;
+    background: $footer-bg;
+
+    &__devider {
+      width: 1px;
+      height: 18px;
+      flex-shrink: 0;
+      background: #c3c3c3;
+      margin: 0 40px;
+    }
+
+    &__payment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:nth-child(2) {
+          margin: 0 38px;
+        }
+        svg {
+          margin-right: 10px;
+        }
+        p {
+          color: #c3c3c3;
+          font-family: $ff-header;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+      @media screen and (max-width: 430px) {
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 150px;
+        &-card {
+          &:nth-child(2) {
+            margin: 20px 0;
+          }
+        }
+      }
+    }
+
+    &__contacts {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:last-child {
+          margin-left: 38px;
+        }
+        svg {
+          margin-right: 10px;
+        }
+
+        a {
+          color: #c3c3c3;
+          font-family: $ff-header;
+          font-size: 13px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+      @media screen and (max-width: 430px) {
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 150px;
+        &-item {
+          &:last-child {
+            margin-left: 0;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 1350px) {
+      flex-direction: column-reverse;
+      height: unset;
+      padding: 20px 0;
+
+      &__devider {
+        height: 1px;
+        width: 66px;
+        margin: 20px 0;
+      }
+    }
+  }
+}
